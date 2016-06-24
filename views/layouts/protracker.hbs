@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>AGA Tour</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="/mobile/css/framework7.ios.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="/mobile/css/my-app.css">
+    <!-- Path to Framework7 Library JS-->
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="/mobile/js/framework7.min.js"></script>
+</head>
+<body>
+<!-- Views -->
+<div class="views">
+    <!-- Your main view, should have "view-main" class -->
+    <div class="view view-main">
+        <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-fixed toolbar-fixed">
+            <!-- Page, "data-page" contains page name -->
+            <div data-page="index" class="page">
+
+                <!-- Top Navbar. In Material theme it should be inside of the page-->
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="center">Pro Tracker&trade; by AGA Tour</div>
+                    </div>
+                </div>
+
+                <!-- Bottom Toolbar. In Material theme it should be inside of the page-->
+                <div class="toolbar">
+                    <div class="toolbar-inner">
+                        <!-- Toolbar links -->
+                        <a href="#" class="link">Link 1</a>
+                        <a href="#" class="link">Link 2</a>
+                    </div>
+                </div>
+
+                <!-- Scrollable page content -->
+                <div class="page-content">
+                    {{{body}}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

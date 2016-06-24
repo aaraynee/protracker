@@ -1,0 +1,43 @@
+<form id="login">
+    <div class="content-block-title">Login</div>
+    <div class="list-block">
+        <ul>
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                        <div class="item-input">
+                            <input type="text" name="username" placeholder="Username">
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                        <div class="item-input">
+                            <input type="password" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="content-block">
+        <a href="#" class="button form-to-json">Login</a>
+    </div>
+</form>
+<script>
+    var myApp = new Framework7();
+    var $$ = Dom7;
+    $$('.form-to-json').on('click', function(){
+        var formData = myApp.formToJSON('#login');
+        $.ajax({
+            url: "/protracker/login",
+            data: formData,
+            method : 'POST'
+        }).done(function(a) {
+            $.cookie('x-access-token', a.token);
+            window.location.replace('account');
+        });
+    });
+</script>

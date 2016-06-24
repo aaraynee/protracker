@@ -1,0 +1,265 @@
+<div class="list-block">
+    <ul>
+        <li>
+            <div class="item-content">
+                <div class="item-inner">
+                    <div class="item-input">
+                        <input type="text" name="tournament" placeholder="Tournament ID">
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="row get">
+    <div class="col-100">
+        <a href="javascript:;" class="button button-big">Get</a>
+    </div>
+</div>
+
+<div class="row hole">
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="1">1</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="2">2</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="3">3</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="4">4</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="5">5</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="6">6</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="7">7</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="8">8</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="9">9</a>
+    </div>
+</div>
+<div class="row hole">
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="10">10</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="11">11</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="12">12</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="13">13</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="14">14</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="15">15</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="16">16</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="17">17</a>
+    </div>
+    <div class="col-11">
+        <a href="javascript:;" class="button" data-hole="18">18</a>
+    </div>
+</div>
+
+
+<div class="row club">
+    <div class="col-25">
+        <a href="javascript:;" class="button button-big" data-club="d">D</a>
+    </div>
+    <div class="col-25">
+        <a href="javascript:;" class="button button-big" data-club="3w">3W</a>
+    </div>
+    <div class="col-25">
+        <!--<a href="javascript:;" class="button button-big" data-club="5w">5W</a>-->
+    </div>
+    <div class="col-25">
+        <!--<a href="javascript:;" class="button button-big" data-club="3h">3h</a>-->
+    </div>
+</div>
+<div class="row club">
+    <div class="col-25">
+        <a href="javascript:;" class="button button-big" data-club="3i">3i</a>
+    </div>
+    <div class="col-25">
+        <a href="javascript:;" class="button button-big" data-club="4i">4i</a>
+    </div>
+    <div class="col-25">
+        <a href="javascript:;" class="button button-big" data-club="5i">5i</a>
+    </div>
+    <div class="col-25">
+        <a href="javascript:;" class="button button-big" data-club="6i">6i</a>
+    </div>
+</div>
+<div class="row club">
+    <div class="col-25">
+        <a href="javascript:;" class="button button-big" data-club="7i">7i</a>
+    </div>
+    <div class="col-25">
+        <a href="javascript:;" class="button button-big" data-club="8i">8i</a>
+    </div>
+    <div class="col-25">
+        <a href="javascript:;" class="button button-big" data-club="9i">9i</a>
+    </div>
+    <div class="col-25">
+        <a href="javascript:;" class="button button-big" data-club="w">W</a>
+    </div>
+</div>
+<div class="row club">
+    <div class="col-25">
+        <a href="javascript:;" class="button button-big" data-club="52">52</a>
+    </div>
+    <div class="col-25">
+        <a href="javascript:;" class="button button-big" data-club="56">56</a>
+    </div>
+    <div class="col-25">
+        <a href="javascript:;" class="button button-big" data-club="p">P</a>
+    </div>
+    <div class="col-25">
+        <a href="javascript:;" class="button button-big" data-club="c">C</a>
+    </div>
+</div>
+
+<div class="row club">
+    <div class="col-100">
+        <div class="score">
+            <h3>Current Hole: <span class="hole"></span></h3>
+            <span class="shots"></span>
+            <h5>Total Shots: <span class="total_shots"></span></h5>
+        </div>
+    </div>
+</div>
+
+<div class="row save">
+    <div class="col-100">
+        <a href="javascript:;" class="button button-big">Save</a>
+    </div>
+</div>
+
+<script>
+    var Stats = {
+        tournament : null,
+        current_hole : null,
+        holes : null,
+        init : function() {
+            Stats.holes = {
+                    '1' : [],
+                    '2' : [],
+                    '3' : [],
+                    '4' : [],
+                    '5' : [],
+                    '6' : [],
+                    '7' : [],
+                    '8' : [],
+                    '9' : [],
+                    '10' : [],
+                    '11' : [],
+                    '12' : [],
+                    '13' : [],
+                    '14' : [],
+                    '15' : [],
+                    '16' : [],
+                    '17' : [],
+                    '18' : []
+            };
+
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    console.log('test');
+                });
+            } else {
+                console.log("Browser doesn't support geolocation!");
+            }
+        },
+        save : function() {
+            if(Stats.tournament) {
+                $.ajax({
+                    url: "/protracker/save",
+                    data: {tournament: Stats.tournament, score: JSON.stringify(Stats.holes)},
+                    method : 'POST'
+                }).done(function (a) {
+                    if(a && a.round.score) {
+                        Stats.holes = a.round.score;
+                    }
+                });
+            }
+        }
+    };
+
+    $(function() {
+        Stats.init();
+    });
+
+    $(".hole a.button").click(function () {
+        $('.hole a').removeClass('active');
+        $(this).addClass('active');
+        var hole = Stats.current_hole = $(this).data('hole');
+        $('.score .hole').html(hole);
+
+        $('.shots').html('<ul></ul>');
+        $('.total_shots').html('');
+
+        var shots = 0;
+        for(var shot in Stats.holes[hole]) {
+            if(club != 'c') {
+                shots++;
+                var club = Stats.holes[hole][shot]['club'];
+                $('.shots ul').append('<li>' + club + '</li>');
+                $('.total_shots').html(shots);
+            }
+        }
+    });
+
+    $(".club a.button").click(function () {
+        if(Stats.current_hole) {
+            var club = $(this).data('club');
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    Stats.holes[Stats.current_hole].push({
+                        club : club,
+                        lat : position.coords.latitude,
+                        long : position.coords.longitude
+                    });
+                    if(club != 'c') {
+                        $('.shots ul').append('<li>' + club + '</li>');
+                    }
+                    Stats.save();
+                });
+            } else {
+                console.log("Browser doesn't support geolocation!");
+            }
+        }
+    });
+
+    $(".save a.button").click(function () {
+        Stats.save();
+    });
+
+    $(".get a.button").click(function () {
+        Stats.tournament = $('[name="tournament"]').val();
+        $.ajax({
+            url: "/protracker/get",
+            data: {tournament: Stats.tournament},
+            method : 'POST'
+        }).done(function (a) {
+            if(a && a.round.score) {
+                Stats.holes = a.round.score;
+            }
+        });
+    });
+</script>
