@@ -4,7 +4,7 @@ var app         = require('express')();
 var bodyParser  = require('body-parser');
 var morgan      = require('morgan');
 var mongoose    = require('mongoose');
-var http        = require('http').Server(app);
+var https        = require('https').Server(app);
 var io          = require('socket.io')(http);
 var moment      = require('moment');
 
@@ -32,6 +32,6 @@ app.set('view engine', '.hbs');
 app.set('superSecret', configDB.superSecret);
 require('./app/routes.js')(express, app, jwt, moment);
 
-http.listen(2999, function(){
+https.listen(2999, function(){
     console.log('listening on *:2999');
 });
