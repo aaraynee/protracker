@@ -32,6 +32,6 @@ app.set('view engine', '.hbs');
 app.set('superSecret', configDB.superSecret);
 require('./app/routes.js')(express, app, jwt, moment);
 
-http.listen(3000, function(){
-    console.log('listening on *:3000');
+http.listen(2999, function(){
+    console.log('listening on *:2999');
 });
