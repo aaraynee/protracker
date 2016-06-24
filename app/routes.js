@@ -3,24 +3,19 @@ var Round = require('./models/round');
 var crypto      = require('crypto');
 
 module.exports = function (express, app, jwt, moment) {
-    /* HOME PAGE */
-    app.get('/', function (req, res) {
-        res.render('index.hbs');
-    });
-
     /* PROTRACKER */
     var proTracker = express.Router();
     app.use('/protracker', proTracker);
 
-    proTracker.get('/', function(req, res) {
+    app.get('/', function(req, res) {
         res.render('protracker/index.hbs', {layout: 'protracker'});
     });
 
-    proTracker.get('/login', function(req, res) {
+    app.get('/login', function(req, res) {
         res.render('protracker/login.hbs', {layout: 'protracker'});
     });
 
-    proTracker.post('/login', function(req, res) {
+    app.post('/login', function(req, res) {
         User.findOne({
             username: req.body.username
         }, function(err, user) {
@@ -46,11 +41,11 @@ module.exports = function (express, app, jwt, moment) {
         });
     });
 
-    proTracker.get('/round', function(req, res) {
+    app.get('/round', function(req, res) {
         res.render('protracker/round.hbs', {layout: 'protracker'});
     });
 
-    proTracker.post('/save', function(req, res) {
+    app.post('/save', function(req, res) {
         Round.findOne({
             tournament: req.body.tournament
         }, function(err, round) {
@@ -68,7 +63,7 @@ module.exports = function (express, app, jwt, moment) {
     });
 
 
-    proTracker.post('/get', function(req, res) {
+    app.post('/get', function(req, res) {
         Round.findOne({
             tournament: req.body.tournament
         }, function(err, round) {
@@ -89,7 +84,7 @@ module.exports = function (express, app, jwt, moment) {
         });
     });
 
-    proTracker.get('/create', function(req, res) {
+    app.get('/create', function(req, res) {
         var user = new User({
             username : 'ahmed',
             password: crypto.createHmac('sha256', 'PBtpc15t').digest('hex')
@@ -102,7 +97,7 @@ module.exports = function (express, app, jwt, moment) {
         });
     });
 
-    proTracker.use(function(req, res, next) {
+    app.use(function(req, res, next) {
         var token = req.body.token || req.query.token || req.headers['x-access-token'];
         if (token) {
             jwt.verify(token, app.get('superSecret'), function(err, decoded) {
@@ -125,7 +120,7 @@ module.exports = function (express, app, jwt, moment) {
         }
     });
 
-    proTracker.get('/account', function(req, res) {
+    app.get('/account', function(req, res) {
         res.render('protracker/account.hbs', {layout: 'protracker'});
     });
 };
